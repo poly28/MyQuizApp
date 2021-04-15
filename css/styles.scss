@@ -13,6 +13,7 @@ body {
 	background-color: #fff;
 	border-radius: 4px;
 	padding: 16px;
+	position: relative;
 	#question {
 		margin-bottom: 16px;
 		font-weight: bold;
@@ -36,12 +37,18 @@ body {
 				border-color: #c3e6cb;
 				color: #155724;
 				font-weight: bold;
+				&::after {
+					content: ' ... correct!';
+				}
 			}
 			&.wrong {
 				background-color: #f8d8da;
 				border-color: #f5c6cb;
 				color: #721c24;
 				font-weight: bold;
+				&::after {
+					content: ' ... wrong!';
+				}
 			}
 		}
 	}
@@ -57,6 +64,42 @@ body {
 			background-color: #ccc;
 			box-shadow: 0 4px 0 #bbb;
 			opacity: 0.7;
+		}
+	}
+	#result {
+		position: absolute;
+		width: 300px;
+		background-color: #fff;
+		padding: 30px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		top: 50px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		border-radius: 4px;
+		text-align: center;
+		transition: 0.4s;
+		p {
+			font-size: 24px;
+		}
+		a {
+			background-color: #3498db;
+			padding: 8px;
+			border-radius: 4px;
+			cursor: pointer;
+			text-align: center;
+			color: #fff;
+			box-shadow: 0 4px 0 #2880b9;
+			display: block;
+			text-decoration: none;
+			&.disabled {
+				background-color: #ccc;
+				box-shadow: 0 4px 0 #bbb;
+				opacity: 0.7;
+			}
+		}
+		&.hidden {
+			transform: translateY(-500px);
 		}
 	}
 }
